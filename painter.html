@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Working on js
+        </title>
+    </head>
+<body>
+
+<h2>Painter entry Dileep Sumanth Yarajala</h2>
+
+<form>
+    <label for="fm_painter">The hidden painter name</label>
+    <input type ="password" id="fm_painter" name="fm_painter" min=10 max=50 step=2 value="Monet"> <br>
+
+    <label for="form_check">Guess the painter</label>
+    <input type ="text" id="painter_in" name="form_check" min=10 max=50 step=2> <br>
+
+    <input type="button" onclick="checkPainter()" value="Check the guess">
+
+</form>
+<p id="result">Result </p>
+
+
+
+<script> 
+    var good = 0
+    var oops = 0
+    
+    function checkPainter(){
+        
+        if(document.getElementById("fm_painter").value==document.getElementById("painter_in").value)
+        {
+          alert('You got it right');
+          good=good+1;
+          
+        }
+        else
+        {
+            alert('Sorry');  
+            oops=oops+1;
+        }
+        document.getElementById("result").innerHTML='Right count: '+good+'.<br>Wrong count:'+oops+'.';
+    }
+</script>
+
+</body>
+</html> 
