@@ -4,19 +4,23 @@
         <title>
             Working on learning java script
         </title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     </head>
 <body>
 
 <h2>Painter entry Dileep Sumanth Yarajala</h2>
 
 <form>
-    <label for="fm_painter">The hidden painter name</label>
-    <input type ="password" id="fm_painter" name="fm_painter" min=10 max=50 step=2 value="Monet"> <br>
+    <label for="form_painter">The hidden painter name</label>
+    <input class="form-control" type ="password" id="form_painter" name="form_painter" min=10 max=50 step=2 value="Monet"> <br>
 
     <label for="form_check">Guess the painter</label>
-    <input type ="text" id="painter_in" name="form_check" min=10 max=50 step=2> <br>
+    <input class="form-control" type ="text" id="painter_inpt" name="form_check" min=10 max=50 step=2> <br>
 
-    <input type="button" onclick="checkPainter()" value="Check the guess">
+    <input class="btn btn-danger" type="button" onclick="checkPainter()" value="Check the guess" id="bttn">
 
 </form>
 <p id="result">Result </p>
@@ -28,13 +32,14 @@
 
 
 
-<script> 
+  <script> 
     var good = 0
     var oops = 0
+    var count=0
     
     function checkPainter(){
         
-        if(document.getElementById("fm_painter").value==document.getElementById("painter_in").value)
+        if(document.getElementById("form_painter").value==document.getElementById("painter_inpt").value)
         {
           alert('You got it right');
           good=good+1;
@@ -42,13 +47,27 @@
         }
         else
         {
-            alert('Sorry');  
-            oops=oops+1;
+            count+=1
+            if(count>10){
+                document.getElementById("bttn").onclick=display()
+            }
+            else{
+                oops=oops+1
+                alert("Sorry")
+                result.innerHTML="Oops count is :"+oops
+            }
+            
         }
         document.getElementById("result").innerHTML='Right count: '+good+'.<br>Wrong count:'+oops+'.';
     }
+    
+    function display()
+    {
+        alert("Sorry, ran out of guesses")
+    }
 
     let useImage=1;
+    
     function selectImage()
     {
     
@@ -63,7 +82,7 @@
                 useImage++;
                 break;
        case 3:
-                document.getElementById("plnt_img").src="yellow_bells.jpg";
+                document.getElementById("plnt_img").src="Yellow_bells.jpg";
                 useImage=1;
                 break;
         }
