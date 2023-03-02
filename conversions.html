@@ -22,6 +22,22 @@
 
 <p id="result">This text will be replaced </p>
 
+<form>
+    <div class="form-group">
+    <input type="radio" name="action" id="mean" name="average" value="mean">
+    <label for="mean">mean</label>
+    <br>
+    <input type="radio" name="action" id="max" name="max" value="maximum">
+    <label for="max">max</label>
+    <br>
+    <input type="radio" name="action" id="min" name="min" value="minimum">
+    <label for="min">min</label>
+    <br> 
+    <br> 
+    <input type="button" class="btn btn-primary" onclick="chooseOp()" value="Get values from radio group">
+</form>
+<p id="rslt">This text will be replaced </p>
+
 <script> 
 var toShow = "";
             
@@ -43,6 +59,25 @@ var toShow = "";
                     amt = amt * 2;
                 }
                 output.innerHTML = "conversions are: " + toShow;
+            }
+
+            function chooseOp() 
+            {
+                var bse = document.getElementById("frm_amt").value;
+                var cnv = document.getElementById("frm_rate").value;
+                var oprtin = document.querySelector('input[name="action"]:checked').value;
+                
+                var bse1 = bse;
+                if (oprtin == "minimum") 
+                {
+                    document.getElementById("rslt").innerHTML = "min of " + bse + " and " + cnv + " is " + Math.min(bse, cnv);
+                } else if (oprtin == "maximum") 
+                {
+                    document.getElementById("rslt").innerHTML = "max of " + bse + " and " + cnv + " is " + Math.max(bse, cnv);
+                } else if (oprtin == "mean") 
+                {
+                    document.getElementById("rslt").innerHTML = "mean of " + bse + " and " + cnv + " is " + (parseInt(bse) + parseInt(cnv)) / 2;
+                }
             }
 </script>
 
