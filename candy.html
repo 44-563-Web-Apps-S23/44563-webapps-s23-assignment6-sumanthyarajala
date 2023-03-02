@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            About candies
+        </title>
+    </head>
+<body>
+
+<h2>Dileep Sumanth Yarajala chooses candy</h2>
+
+<form>
+    <input type="checkbox" id="dark" name="candy" value="true">
+    <label for="dark">Dark Chocolate</label> 
+    <br>
+ 
+    <input type="checkbox" id="nuts" name="vacation" value="true">
+    <label for="nuts">Nuts</label> 
+    <br>
+
+    <input type="checkbox" id="chewy" name="vacation" value="false">
+    <label for="chewy">Chewy</label> 
+    <br>
+    <br>
+    <input type="button" value="Select a box" onclick="selectBox()">
+</form>
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+
+let my_candy_box={};
+function selectBox()
+    {
+        my_candy_box={};
+        
+        let dark_choco=document.getElementById("dark").checked
+        let nuts=document.getElementById("nuts").checked
+        let chewy=document.getElementById("chewy").checked
+        
+        if(dark_choco)
+        {
+            my_candy_box.dark_choco = true;
+        }
+        else
+        {
+            my_candy_box.dark_choco = false;
+        }
+        if(nuts)
+        {
+            my_candy_box.nuts = true;
+        }
+        else
+        {
+            my_candy_box.nuts = false;
+        }
+        if(chewy)
+        {
+            my_candy_box.chewy = true;
+        }
+        else
+        {
+            my_candy_box.chewy = false;
+        }
+        document.getElementById("result").innerHTML=JSON.stringify(my_candy_box)
+    }
+</script>
+
+</body>
+</html> 
