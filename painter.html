@@ -20,6 +20,11 @@
 
 </form>
 <p id="result">Result </p>
+<div>
+
+    <img id="plnt_img" onclick="selectImage()" src="arum.jpg" height= "100px" width="100px" alt="arum Plant">
+  
+  </div>
 
 
 
@@ -41,6 +46,27 @@
             oops=oops+1;
         }
         document.getElementById("result").innerHTML='Right count: '+good+'.<br>Wrong count:'+oops+'.';
+    }
+
+    let useImage=1;
+    function selectImage()
+    {
+    
+        switch(useImage)
+        {
+        case 1:
+                document.getElementById("plnt_img").src="arum.jpg";
+                useImage++;
+                break;
+        case 2:
+                document.getElementById("plnt_img").src="rock_rose.jpg";
+                useImage++;
+                break;
+       case 3:
+                document.getElementById("plnt_img").src="yellow_bells.jpg";
+                useImage=1;
+                break;
+        }
     }
 </script>
 
