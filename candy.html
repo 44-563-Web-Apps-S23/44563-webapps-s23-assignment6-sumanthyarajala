@@ -27,6 +27,20 @@
 
 <p id="result">This text will be replaced </p>
 
+<form>
+    <label for="form1_size">Enter the size</label>
+    <input type ="text" id="form1_size" name="form1_size" value="Size"> 
+    <br>
+    <br>
+    <label for="form1_price">Enter price</label>
+    <input type ="text" id="form1_price" name="form1_price"> 
+    <br>
+    <br>
+    <input type="button" onclick="updateBox()" value="Update the box">
+</form>
+
+<p id="result2">This text will be replaced </p>
+
 <script> 
 
 let my_candy_box={};
@@ -63,6 +77,17 @@ function selectBox()
             my_candy_box.chewy = false;
         }
         document.getElementById("result").innerHTML=JSON.stringify(my_candy_box)
+    }
+    function updateBox() 
+    {
+        sze = document.getElementById("form1_size").value
+        prce = document.getElementById("form1_price").value
+        outpt = document.getElementById("result2")
+
+        my_candy_box["size"] = sze
+        my_candy_box["price"] = prce
+
+        outpt.innerHTML = JSON.stringify(my_candy_box)
     }
 </script>
 
